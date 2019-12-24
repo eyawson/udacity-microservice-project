@@ -1,7 +1,7 @@
 version: "3"
 services:
   reverseproxy:
-    image: akwele/udacity-runall
+    image: akwele/runall
     ports:
       - 8080:8080
     restart: always
@@ -11,7 +11,7 @@ services:
     # proxy info
   user:
     # service info goes here
-    image: akwele/udacity-restapi-user
+    image: akwele/c3-user
     volumes:
       - $HOME/.aws:/root/.aws
 
@@ -21,14 +21,14 @@ services:
       POSTGRESS_DB: $POSTGRESS_DATABASE 
       POSTGRESS_HOST: $POSTGRESS_HOST 
       AWS_REGION: $AWS_REGION 
-      AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_BUCKET
+      AWS_PROFILE: $AWS_PROFILE
+      AWS_BUCKET: $AWS_MEDIA_BUCKET
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
 
   feed:
     # service info goes here
-    image: akwele/udacity-restapi-feed
+    image: akwele/c3-feed
     volumes:
       - $HOME/.aws:/root/.aws
 
@@ -39,12 +39,12 @@ services:
       POSTGRESS_HOST: $POSTGRESS_HOST 
       AWS_REGION: $AWS_REGION 
       AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_BUCKET
+      AWS_BUCKET: $AWS_MEDIA_BUCKET
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
 
   frontend:
     # service info goes here
-    image: akwele/udacity-frontend
+    image: akwele/c3-frontend
     ports:
       - "8100:80"

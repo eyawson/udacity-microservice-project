@@ -1,0 +1,12 @@
+apiVersion: v1
+type: ConfigMap
+data:
+    POSTGRESS_DATABASE: udagramdev
+    POSTGRESS_HOST: udagramdev.c9hkwbw7ggmk.us-east-1.rds.amazonaws.com
+    AWS_REGION: us-east-1
+    AWS_PROFILE: default
+    AWS_MEDIA_BUCKET: udagram-ebow-dev
+    JWT_SECRET: hello2world
+    URL: http://localhost:8100
+metadata:
+    name: env-config
